@@ -73,6 +73,31 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "gunicorn"
+version = "21.2.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
+name = "packaging"
+version = "23.1"
+description = "Core utilities for Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "python-decouple"
 version = "3.8"
 description = "Strict separation of settings from code."
@@ -120,7 +145,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "523276fcc3731a900981db1f4dad399f53c571152102bb2503d07003955937bf"
+content-hash = "c22962fed31597ddaf7aade364814361cf3233472e87e351a1ca9eb17cadd80c"
 
 [metadata.files]
 asgiref = []
@@ -129,6 +154,8 @@ django = []
 django-cors-headers = []
 django-restframework = []
 djangorestframework = []
+gunicorn = []
+packaging = []
 python-decouple = []
 pytz = []
 sqlparse = []
