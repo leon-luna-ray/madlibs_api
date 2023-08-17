@@ -73,6 +73,14 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "python-decouple"
+version = "3.8"
+description = "Strict separation of settings from code."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pytz"
 version = "2023.3"
 description = "World timezone definitions, modern and historical"
@@ -112,7 +120,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "422e92fbf53e756ba7ee0ff4ea56c97a8c71423cbe30e32d2fc720ec224b094e"
+content-hash = "523276fcc3731a900981db1f4dad399f53c571152102bb2503d07003955937bf"
 
 [metadata.files]
 asgiref = []
@@ -121,6 +129,7 @@ django = []
 django-cors-headers = []
 django-restframework = []
 djangorestframework = []
+python-decouple = []
 pytz = []
 sqlparse = []
 typing-extensions = []
