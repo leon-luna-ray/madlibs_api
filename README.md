@@ -8,3 +8,6 @@ A Madlibs REST API backend for generating random Madlibs stories for use in fron
 - Python
 - Django
 - Render
+
+## Image
+![Screenshot](./madlibs_api/static/images/madlibs_api.png)
