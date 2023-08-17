@@ -65,6 +65,8 @@ DATABASES = {
 STATICFILES_DIRS = [
     BASE_DIR / 'madlibs_api' / 'static',
 ]
+STATIC_ROOT = BASE_DIR / 'static'
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
