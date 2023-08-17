@@ -62,6 +62,10 @@ DATABASES = {
     }
 }
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'madlibs_api' / 'static',
+]
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
