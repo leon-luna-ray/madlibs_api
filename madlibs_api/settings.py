@@ -2,10 +2,10 @@ from pathlib import Path
 from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# env
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
-
-
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv())
 
@@ -40,7 +40,7 @@ ROOT_URLCONF = 'madlibs_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'madlibs_api' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
