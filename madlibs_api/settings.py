@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config, Csv
 
@@ -26,6 +27,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,10 +64,6 @@ DATABASES = {
     }
 }
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'madlibs_api' / 'static',
-]
-STATIC_ROOT = BASE_DIR / 'static'
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -91,6 +89,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Static
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'madlibs_api' / 'static',
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+if DEBUG == False:
+    print('DEBUG FALSE')
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
