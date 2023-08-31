@@ -6,8 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # env
 SECRET_KEY = config('SECRET_KEY')
-# DEBUG = config('DEBUG')
-DEBUG = False
+DEBUG = config('DEBUG')
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv())
 
