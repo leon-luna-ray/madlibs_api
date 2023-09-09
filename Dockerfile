@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code/
 
 COPY ./manage.py ./manage.py
-COPY ./poetry.lock ./poetry.lock
+# COPY ./poetry.lock ./poetry.lock
 COPY ./pyproject.toml ./pyproject.toml
 COPY ./README.md ./README.md
 COPY ./madlibs_api/ ./madlibs_api/
