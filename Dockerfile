@@ -15,7 +15,15 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --only main --no-root --no-interaction
 COPY . /code
 
-ENV SECRET_KEY "I2AoKp6Blot0roYQ252gRdV02j5xFlXotUlKEbkOiXcLDGqV43"
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    npm \
+    && npm install -g yarn
+
+WORKDIR /code/frontend
+
+RUN yarn build
+
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
