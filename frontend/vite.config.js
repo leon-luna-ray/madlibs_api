@@ -5,6 +5,7 @@ export default {
     rollupOptions: {
       output: {
         entryFileNames: 'index.js',
+        assetFileNames: 'index.css',
       },
     },
   },
