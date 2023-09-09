@@ -1,7 +1,6 @@
 $(document).ready(function renderPage() {
-  const query = `${import.meta.env.VITE_BASE_API_URL}/random`;
-  console.log('HELLO WORLD!')
-  console.log(import.meta.env.VITE_BASE_API_URL)
+  const query = `/api/random`;
+
   $.ajax({
     url: query,
   }).then(function (result) {

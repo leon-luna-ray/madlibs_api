@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     && npm install -g yarn
 
 WORKDIR /code/frontend
+ENV VITE_BASE_API_URL=$VITE_BASE_API_URL
 COPY frontend/package.json frontend/yarn.lock ./
 COPY frontend/index.html ./
 COPY frontend/vite.config.js ./
