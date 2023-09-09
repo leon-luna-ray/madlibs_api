@@ -9,20 +9,28 @@ RUN mkdir -p /code
 
 WORKDIR /code
 
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g yarn
+
+WORKDIR /code/frontend
+COPY frontend/package.json frontend/yarn.lock ./
+COPY frontend/index.html ./
+COPY frontend/assets/ ./assets/
+
+RUN yarn
+RUN yarn build
+
+WORKDIR /code
 RUN pip install poetry
 COPY pyproject.toml poetry.lock /code/
 RUN poetry config virtualenvs.create false
 RUN poetry install --only main --no-root --no-interaction
 COPY . /code
 
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm \
-    && npm install -g yarn
 
-WORKDIR /code/frontend
-RUN yarn
-RUN yarn build
 
 RUN python manage.py collectstatic --noinput
 
