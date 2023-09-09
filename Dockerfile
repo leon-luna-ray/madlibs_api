@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     && npm install -g yarn
 
 WORKDIR /code/frontend
-
+RUN yarn
 RUN yarn build
 
 RUN python manage.py collectstatic --noinput
