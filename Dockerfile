@@ -1,27 +1,23 @@
-FROM python:3.10-alpine
+ARG PYTHON_VERSION=3.10-slim-bullseye
 
-ENV VERSION=3.10
-ENV DEBIAN_FRONTEND noninteractive
-ENV PYTHONIOENCODING utf8
+FROM python:${PYTHON_VERSION}
+
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /code/
+RUN mkdir -p /code
 
-COPY ./manage.py ./manage.py
-# COPY ./poetry.lock ./poetry.lock
-COPY ./pyproject.toml ./pyproject.toml
-COPY ./README.md ./README.md
-COPY ./madlibs_api/ ./madlibs_api/
-COPY ./game/ ./game/
-COPY ./frontend/ ./frontend/
+WORKDIR /code
 
-RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-dev --no-interaction --no-ansi
+RUN pip install poetry
+COPY pyproject.toml poetry.lock /code/
+RUN poetry config virtualenvs.create false
+RUN poetry install --only main --no-root --no-interaction
+COPY . /code
 
-EXPOSE 8080
+ENV SECRET_KEY "I2AoKp6Blot0roYQ252gRdV02j5xFlXotUlKEbkOiXcLDGqV43"
+RUN python manage.py collectstatic --noinput
 
-CMD set -xe; \
-    python manage.py collectstatic --noinput; \
-    python manage.py migrate --noinput; \
-    gunicorn recipe_api.wsgi:application --bind 0.0.0.0:8080
+EXPOSE 8000
+
+CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "madlibs_api.wsgi"]
