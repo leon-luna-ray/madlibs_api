@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /code/frontend
 COPY frontend/package.json frontend/yarn.lock ./
 COPY frontend/index.html ./
+COPY frontend/vite.config.js ./
 COPY frontend/assets/ ./assets/
 
 RUN yarn
