@@ -26,3 +26,4 @@ celerybeat-schedule
 uploads/*
 frontend/dist/
 staticfiles/
+poetry.lock
