@@ -1,3 +1,22 @@
+# Production Dockerfile for Noteworthy project
+# Stage 1: Build the frontend
+FROM node:lts-alpine as frontend
+
+WORKDIR /app
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+RUN npm install -g pnpm
+
+COPY frontend/package.json frontend/pnpm-lock.yaml ./
+
+RUN pnpm install
+
+COPY frontend/ ./
+
+RUN pnpm run build
+
+
 ARG PYTHON_VERSION=3.10-slim-bullseye
 
 FROM python:${PYTHON_VERSION}
@@ -17,13 +36,13 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /code/frontend
 ENV VITE_BASE_API_URL=$VITE_BASE_API_URL
-COPY frontend/package.json frontend/yarn.lock ./
-COPY frontend/index.html ./
-COPY frontend/vite.config.js ./
-COPY frontend/assets/ ./assets/
+# COPY frontend/package.json frontend/yarn.lock ./
+# COPY frontend/index.html ./
+# COPY frontend/vite.config.js ./
+# COPY frontend/assets/ ./assets/
 
-RUN yarn
-RUN yarn build
+# RUN yarn
+# RUN yarn build
 
 WORKDIR /code
 RUN pip install poetry
