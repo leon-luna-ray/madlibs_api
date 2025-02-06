@@ -24,9 +24,9 @@ FROM python:${PYTHON_VERSION}
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /code
+RUN mkdir -p /app
 
-WORKDIR /code
+WORKDIR /app/backend
 
 RUN apt-get update && apt-get install -y \
     curl \
@@ -34,8 +34,8 @@ RUN apt-get update && apt-get install -y \
     && apt-get install -y nodejs \
     && npm install -g yarn
 
-WORKDIR /code/frontend
-ENV VITE_BASE_API_URL=$VITE_BASE_API_URL
+# WORKDIR /app/frontend
+# ENV VITE_BASE_API_URL=$VITE_BASE_API_URL
 # COPY frontend/package.json frontend/yarn.lock ./
 # COPY frontend/index.html ./
 # COPY frontend/vite.config.js ./
@@ -44,12 +44,12 @@ ENV VITE_BASE_API_URL=$VITE_BASE_API_URL
 # RUN yarn
 # RUN yarn build
 
-WORKDIR /code
+# WORKDIR /app
 RUN pip install poetry
-COPY pyproject.toml poetry.lock /code/
+COPY pyproject.toml poetry.lock /app/
 RUN poetry config virtualenvs.create false
 RUN poetry install --only main --no-root --no-interaction
-COPY . /code
+COPY . /app
 
 
 

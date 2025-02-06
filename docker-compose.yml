@@ -1,12 +1,11 @@
 version: '3.8'
 
 services:
-  madlibs_api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+
+  backend:
+    build: ./backend
     ports:
-      - "8000:8000"
+      - 8080:8080
     volumes:
       - ./backend:/app
     command: gunicorn --bind :8000 --workers 2 madlibs_api.wsgi
