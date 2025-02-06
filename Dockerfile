@@ -1,7 +1,7 @@
 # Production Dockerfile for Noteworthy project
 # Stage 1: Build the frontend
 FROM node:lts-alpine as frontend
-
+RUN mkdir /app
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
@@ -24,7 +24,7 @@ FROM python:${PYTHON_VERSION}
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /app
+# RUN mkdir -p /app
 
 WORKDIR /app/backend
 
