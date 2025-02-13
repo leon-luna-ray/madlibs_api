@@ -16,6 +16,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '../backend/madlibs_api/static/dist',
+    outDir: '../backend/madlibs_ai/static/dist',
   },
 })

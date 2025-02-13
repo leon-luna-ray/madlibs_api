@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "madlibs_api"
+name = "madlibs_ai"
 version = "1.0"
 description = "REST API for random Madlibs stories."
 authors = ["Ray Luna <leon.luna.ray@gmail.com>"]

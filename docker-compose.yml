@@ -1,33 +1,33 @@
-version: '3.8'
+version: '3'
 
 services:
-
-  backend:
-    build: ./backend
+  www:
+    build:
+      context: ./backend  # Build context is the backend directory
+      dockerfile: Dockerfile
+    image: madlibs_ai
+    container_name: madlibs_ai
+    volumes:
+      - ./backend/madlibs_ai:/code/madlibs_ai  # Map backend/madlibs_ai to /code/madlibs_ai
+      - ./backend/apps:/code/apps  # Map backend/apps to /code/apps
+      # - ./.var/media:/srv/media  # Media files (if needed)
+    command: gunicorn madlibs_ai.wsgi:application --bind 0.0.0.0:8080
     ports:
       - 8080:8080
-    volumes:
-      - ./backend:/app
-    command: gunicorn --bind :8000 --workers 2 madlibs_api.wsgi
+    env_file:
+      - ./backend/.env  
+#   db:
+#     image: postgres
+#     container_name: madlibs-db
+#     environment:
+#         POSTGRES_PASSWORD: root
+#         POSTGRES_DB: madlibs_ai
+#     volumes:
+#       - db-data:/var/lib/postgresql/data 
+#     ports:
+#       - 5432:5432
+#     env_file:
+#       - .env
 
-  frontend:
-    build: ./frontend
-    volumes:
-      - './frontend:/app'
-      - '/app/node_modules'
-    ports:
-      - 5173:5173
-
-  db:
-    image: postgres
-    container_name: madlibs-db
-    environment:
-        POSTGRES_PASSWORD: root
-        POSTGRES_DB: madlibs
-    volumes:
-      - db-data:/var/lib/postgresql/data 
-    ports:
-      - 5432:5432
-
-volumes:
-  db-data:
+# volumes:
+#   db-data:

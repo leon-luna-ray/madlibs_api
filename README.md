@@ -18,4 +18,4 @@ A Madlibs game application and REST API built with Django. This application lets
 - Vite.js
 
 ## Image
-![Screenshot](./madlibs_api/static/images/madlibs_api.png)
+![Screenshot](./madlibs_ai/static/images/madlibs_ai.png)
