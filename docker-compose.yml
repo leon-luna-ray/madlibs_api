@@ -3,14 +3,14 @@ version: '3'
 services:
   www:
     build:
-      context: ./backend  # Build context is the backend directory
+      context: ./backend
       dockerfile: Dockerfile
     image: madlibs_ai
     container_name: madlibs_ai
     volumes:
-      - ./backend/madlibs_ai:/code/madlibs_ai  # Map backend/madlibs_ai to /code/madlibs_ai
-      - ./backend/apps:/code/apps  # Map backend/apps to /code/apps
-      # - ./.var/media:/srv/media  # Media files (if needed)
+      - ./backend/madlibs_ai:/code/madlibs_ai
+      - ./backend/apps:/code/apps
+      # - ./.var/media:/srv/media  # Media files
     command: gunicorn madlibs_ai.wsgi:application --bind 0.0.0.0:8080
     ports:
       - 8080:8080
