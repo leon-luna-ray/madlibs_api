@@ -12,9 +12,11 @@ from .serializers import TemplateSerializer
 
 class RandomTemplateView(APIView):
     def get(self, request, *args, **kwargs):
-        json_file_path = settings.BASE_DIR / 'game' / 'game_data' / 'templates.json'
+        json_file_path = (
+            settings.BASE_DIR / "apps" / "game" / "game_data" / "templates.json"
+        )
 
-        with open(json_file_path, 'r') as json_file:
+        with open(json_file_path, "r") as json_file:
             templates_data = json.load(json_file)
 
         templates = templates_data["templates"]
