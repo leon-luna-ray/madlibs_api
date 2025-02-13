@@ -1,7 +1,14 @@
 version: '3'
 
 services:
-  www:
+  frontend:
+    build: ./frontend
+    volumes:
+      - './frontend:/app'
+      - '/app/node_modules'
+    ports:
+      - 5173:5173
+  backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -15,7 +22,7 @@ services:
     ports:
       - 8080:8080
     env_file:
-      - ./backend/.env  
+      - ./backend/.env
 #   db:
 #     image: postgres
 #     container_name: madlibs-db
