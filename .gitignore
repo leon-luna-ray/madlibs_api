@@ -29,3 +29,6 @@ staticfiles/
 poetry.lock
 
 .env
+
+
+fly.toml
