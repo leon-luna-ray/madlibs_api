@@ -7,26 +7,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ON_FLY = os.getenv('FLY_APP_NAME') is not None
 
 if ON_FLY:
-    print("Running on Fly.io 🪁")
     # Production settings
+    print("Running on Fly.io 🪁")
     SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', 'False') == 'True'
     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
     CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',')
 else:
-    # Local development settings using python-decouple
+    print("🛜 Local Settings")
     from decouple import config, Csv
     SECRET_KEY = config('SECRET_KEY')
     DEBUG = config('DEBUG', default=True, cast=bool)
     ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
     CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='http://localhost:5173', cast=Csv())
-
-
-# env
-# SECRET_KEY = config('SECRET_KEY')
-# DEBUG = config('DEBUG')
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-# CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv())
 
 
 # Application definition
