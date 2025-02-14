@@ -9,13 +9,10 @@ A Madlibs game application and REST API built with Django. This application lets
 - Python
 - Django
 - Fly.io
+- Mistral AI
 
 ### Frontend
 - JavaScript
-- JQuery
-- HTML5
-- CSS3
+- TailwindCSS
+- Vue.js
 - Vite.js
-
-## Image
-![Screenshot](./madlibs_ai/static/images/madlibs_ai.png)
