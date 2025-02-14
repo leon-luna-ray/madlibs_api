@@ -1,9 +1,10 @@
 <template>
   <main>
-    <h1>Madlibs Chatbot</h1>
-    <p>Ask the chatbot to write a Madlibs story for you!</p>
-    <p>Response:</p>
-    <p>{{ response }}</p>
+    <div class="container">
+      <h1>Madlibs.AI</h1>
+      <p>Response:</p>
+      <p>{{ response }}</p>
+    </div>
   </main>
 </template>
 
@@ -15,8 +16,8 @@ const MISTRAL_API_KEY = import.meta.env.VITE_MISTRAL_API_KEY;
 
 const data = ref(null);
 
-const response = computed(()=>{
-  if(data.value){
+const response = computed(() => {
+  if (data.value) {
     return data.value.choices[0]?.message?.content;
   }
   return null;
