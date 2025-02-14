@@ -1,0 +1,26 @@
+# fly.toml app configuration file generated for madlibs-ai on 2025-02-13T20:35:13-08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'madlibs-ai'
+primary_region = 'sea'
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+
+[env]
+  DEBUG = "False"
