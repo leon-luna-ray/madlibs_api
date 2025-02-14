@@ -5,10 +5,6 @@ description = "REST API for random Madlibs stories."
 authors = ["Ray Luna <leon.luna.ray@gmail.com>"]
 license = "MIT"
 
-packages = [
-  { include = "madlibs_ai" }
-]
-
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "^4.2.4"
