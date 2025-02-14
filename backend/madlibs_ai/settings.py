@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'game',
+    'apps.game',
 ]
 
 MIDDLEWARE = [
@@ -37,12 +37,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'madlibs_api.urls'
+ROOT_URLCONF = 'madlibs_ai.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'madlibs_api' / 'templates'],
+        'DIRS': [BASE_DIR / 'madlibs_ai' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -55,7 +55,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'madlibs_api.wsgi.application'
+WSGI_APPLICATION = 'madlibs_ai.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -93,7 +93,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'madlibs_api' / 'static',
+    BASE_DIR / 'madlibs_ai' / 'static',
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 

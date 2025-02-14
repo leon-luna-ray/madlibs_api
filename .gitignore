@@ -27,3 +27,8 @@ uploads/*
 frontend/dist/
 staticfiles/
 poetry.lock
+
+.env
+
+
+fly.toml

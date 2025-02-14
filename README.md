@@ -5,14 +5,17 @@ A Madlibs game application and REST API built with Django. This application lets
 [https://madlibs-api.fly.dev](https://madlibs-api.fly.dev)
 
 ## Technologies
+### Backend
 - Python
 - Django
 - Fly.io
-- CSS3
-- HTML5
-- JQuery
+
+### Frontend
 - JavaScript
+- JQuery
+- HTML5
+- CSS3
 - Vite.js
 
 ## Image
-![Screenshot](./madlibs_api/static/images/madlibs_api.png)
+![Screenshot](./madlibs_ai/static/images/madlibs_ai.png)
