@@ -61,7 +61,7 @@ COPY backend/madlibs_ai/ ./madlibs_ai/
 COPY backend/apps/ ./apps/
 
 # Copy built frontend assets
-COPY --from=frontend-builder /app/dist /code/frontend-dist
+# COPY --from=frontend-builder /app/dist /code/frontend-dist
 
 # Collect static files and set up permissions
 RUN python manage.py collectstatic --noinput && \
