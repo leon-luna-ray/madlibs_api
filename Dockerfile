@@ -39,7 +39,9 @@ FROM python:3.10-alpine
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONPATH=/code \
-    STATIC_FILES_ROOT=/code/staticfiles
+    STATIC_FILES_ROOT=/code/staticfiles \
+    FLY_APP_NAME="true" \
+    SECRET_KEY="dummy-key-for-build"
 
 RUN apk update && apk add --no-cache \
     postgresql-client \
