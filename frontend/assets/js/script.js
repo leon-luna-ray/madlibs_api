@@ -1,6 +1,6 @@
 $(document).ready(function renderPage() {
   const query = `/api/random`;
-
+  console.log('hello world');
   $.ajax({
     url: query,
   }).then(function (result) {
