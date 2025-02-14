@@ -1,5 +1,3 @@
-
-Copy
 # Stage 1: Frontend build
 FROM node:lts-alpine as frontend-builder
 
