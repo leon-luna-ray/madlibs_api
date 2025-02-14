@@ -7,6 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ON_FLY = os.getenv('FLY_APP_NAME') is not None
 
 if ON_FLY:
+    print("Running on Fly.io 🪁")
     # Production settings
     SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', 'False') == 'True'
