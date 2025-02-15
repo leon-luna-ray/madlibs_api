@@ -1,5 +1,10 @@
+
+@import './fonts.css';
+
 @import "tailwindcss";
 
 @import './base.css';
 @import './components.css';
+@import './theme.css';
+@import './transitions.css';
 @import './utilities.css';

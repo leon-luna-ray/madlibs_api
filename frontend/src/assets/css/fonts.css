@@ -1,0 +1,10 @@
+/* Fonts.css file for google fonts imports. Must be imported before tailwind in main.css */
+
+/* Bangers */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/* Nunito */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* Honk */
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
