@@ -7,8 +7,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 RUN npm install -g pnpm
 
-COPY package.json .
-COPY pnpm-lock.yaml .
+COPY . .
 
 RUN pnpm install
 
