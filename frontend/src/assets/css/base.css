@@ -45,4 +45,7 @@
     .body-text-2 {
         @apply text-[1rem] leading-relaxed;
     }
+    .body-text-3 {
+        @apply text-[0.875rem] leading-relaxed;
+    }
 }
