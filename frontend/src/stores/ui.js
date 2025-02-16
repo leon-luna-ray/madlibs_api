@@ -13,7 +13,7 @@ export const useUiStore = defineStore('ui', () => {
         document.body.classList.add('fonts-loaded')
     }
 
-    const setReducedMotion = () => {
+    const setReduceMotion = () => {
         if (window.matchMedia('(prefers-reduced-motion)').matches) {
             document.body.classList.add('reduce-motion')
         }
@@ -22,6 +22,6 @@ export const useUiStore = defineStore('ui', () => {
     return {
         reduceMotion,
         setFontsLoaded,
-        setReducedMotion,
+        setReduceMotion,
     }
 });
