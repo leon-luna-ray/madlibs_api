@@ -102,4 +102,5 @@ if DEBUG == False:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-APPEND_SLASH=False
+# APPEND_SLASH = False
+ENFORCE_TRAILING_SLASH = False
