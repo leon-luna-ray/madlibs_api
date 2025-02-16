@@ -1,1 +1,9 @@
-/* body:not(.reduce-motion) {} */
+body:not(.reduce-motion) .fade-enter-active, 
+body:not(.reduce-motion) .fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+body:not(.reduce-motion) .fade-enter, 
+body:not(.reduce-motion) .fade-leave-to {
+    opacity: 0;
+}

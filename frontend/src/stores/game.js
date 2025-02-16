@@ -4,17 +4,35 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useGameStore = defineStore('game', () => {
+    const isActive = ref(false);
+    const isLoading = ref(false);
     const storyData = ref(null);
 
     const fetchRandomStory = async () => {
-        const response = await axios.get('/random');
+        isLoading.value = true;
 
-        console.log(response.data);
-        storyData.value = response.data;
+        try {
+            const response = await axios.get('/random');
+            console.log(response.data);
+
+            storyData.value = response.data;
+        } catch (error) {
+            console.error('Error fetching random story:', error);
+        } finally {
+            isLoading.value = false;
+        }
+    }
+
+    const start = () => {
+        isActive.value = true;
+        fetchRandomStory();
     }
 
     return {
+        isActive,
+        isLoading,
         storyData,
         fetchRandomStory,
+        start,
     }
 });
