@@ -7,6 +7,7 @@ export const useGameStore = defineStore('game', () => {
     const isActive = ref(false);
     const isLoading = ref(false);
     const storyData = ref(null);
+    const userResponses = ref([]);
 
     const fetchRandomStory = async () => {
         isLoading.value = true;
@@ -32,6 +33,7 @@ export const useGameStore = defineStore('game', () => {
         isActive,
         isLoading,
         storyData,
+        userResponses,
         fetchRandomStory,
         start,
     }
